@@ -1,9 +1,46 @@
 
-import React from 'react';
+import { gridLayer } from 'leaflet';
+import React, { useEffect } from 'react';
 
 export default function WelcomePage() {
+  const [timeOfDay, setTimeOfDay] = React.useState('morning');
+
+  useEffect(() => {
+    const updateTimeOfDay = () => {
+      const hour = new Date().getHours();
+
+      if (hour >= 5 && hour < 12) {
+        setTimeOfDay('morning');
+      }else if (hour >= 12 && hour < 18) {
+        setTimeOfDay('afternoon');
+      }else {
+        setTimeOfDay('night');
+      }
+    };
+    updateTimeOfDay();
+
+    const interval = setInterval(updateTimeOfDay, 60 * 60 * 1000); // Updates every hour
+    return () => clearInterval(interval);
+  }, []);
+
+  const timeConfig = {
+    morning: {
+      gradient: 'from-yellow-100 to-orange-200',
+      greeting: 'Good Morning!',
+    },
+    afternoon: {
+      gradient: 'from-blue-100 to-yellow-200',
+      greeting: 'Good Afternoon!',
+    },
+    night: {
+      gradient: 'from-gray-800 to-black',
+      greeting: 'Good Evening!',
+    },
+  };
+
+  const config = timeConfig[timeOfDay];
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-100 to-orange-200">
+    <div className={`min-h-screen bg-gradient-to-br ${config.gradient} transition-all duration-1000`}>
  {/* Navigation Bar */}
  <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
@@ -26,7 +63,7 @@ export default function WelcomePage() {
       <main className="container mx-auto px-4 py-16 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Welcome!
+            {config.greeting}
             <span className="text-pink-600"> Lovely to meet u!</span>
           </h2>
           
