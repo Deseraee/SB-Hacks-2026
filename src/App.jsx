@@ -4,6 +4,7 @@ import Contact from './Contact';
 import About from './About';
 import EmergencyPage from './EmergencyPage';
 import MoodApp from './MoodApp';
+import Resources from './Resources'; 
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/emergency" element={<EmergencyPage />} />
-        <Route path="/mood" element={<MoodApp />} /> {/* Add MoodApp as a route */}
+        <Route path="/mood" element={<MoodApp />} />
+        <Route path="/resources" element={<Resources />} />
       </Routes>
     </Router>
   );

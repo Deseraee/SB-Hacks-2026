@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const EmergencyPage = () => {
   const [status, setStatus] = useState("idle"); // idle | loading | done
@@ -22,7 +23,7 @@ const EmergencyPage = () => {
       if (useMock) {
         setTimeout(() => {
           const mockCoords = {
-            latitude: 34.4140 + (Math.random() - 0.5) * 0.01, // Santa Barbara area
+            latitude: 34.4140 + (Math.random() - 0.5) * 0.01,
             longitude: -119.8489 + (Math.random() - 0.5) * 0.01,
             isMock: true
           };
@@ -38,8 +39,8 @@ const EmergencyPage = () => {
     if (navigator.geolocation) {
       const options = {
         enableHighAccuracy: true,
-        timeout: 10000, // 10 seconds timeout
-        maximumAge: 0 // Don't use cached position
+        timeout: 10000,
+        maximumAge: 0
       };
 
       navigator.geolocation.getCurrentPosition(
@@ -51,11 +52,7 @@ const EmergencyPage = () => {
           };
           setLocation(coords);
           console.log("Alert sent! Location:", coords);
-
-          // When location is captured, change status to done
           setStatus("done");
-
-          // After 2 seconds, camouflage the page
           setTimeout(() => setCamouflaged(true), 2000);
         },
         (error) => {
@@ -78,7 +75,6 @@ const EmergencyPage = () => {
           
           setErrorMessage(message);
           setStatus("idle");
-          
           
           setTimeout(() => {
             const retry = window.confirm(
@@ -106,123 +102,152 @@ const EmergencyPage = () => {
 
   if (camouflaged) {
     return (
-      <div style={{ 
-        padding: "2rem", 
-        fontFamily: "'Mali', cursive, sans-serif",
-        background: "#f0f2f5",
-        fontSize: "3rem",
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center"
-      }}>
-        <h1 style={{ fontSize: "4rem", marginBottom: "2rem" }}> Notes</h1>
-        <p style={{ fontSize: "2.5rem" }}>Just catching up on your work...</p>
+      <div className="min-h-screen bg-gradient-to-br from-white to-purple-100">
+        {/* BACK BUTTON #2 */}
+        <div className="bg-gradient-to-r from-orange-100 to-pink-200 py-4 px-8 shadow-sm">
+          <Link 
+            to="/"
+            className="text-pink-800 hover:text-pink-900 font-semibold text-2xl flex items-center gap-2" 
+            style={{fontFamily: 'Mali'}}
+          >
+            ← Back to Home
+          </Link>
+        </div>
+        
+        <div style={{ 
+          padding: "2rem", 
+          fontFamily: "'Mali', cursive, sans-serif",
+          background: "#f0f2f5",
+          fontSize: "3rem",
+          minHeight: "calc(100vh - 73px)",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center"
+        }}>
+          <h1 style={{ fontSize: "4rem", marginBottom: "2rem" }}>📝 Notes</h1>
+          <p style={{ fontSize: "2.5rem" }}>Just catching up on your work...</p>
+          <p style={{ fontSize: "1.5rem", marginTop: "3rem", color: "#666" }}>
+            (Emergency alert has been sent with your location)
+          </p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div style={{
-      height: "100vh",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-      fontSize: "2rem",
-      fontFamily: "'Mali', cursive, sans-serif",
-      background: "#f0f2f5",
-      padding: "2rem",
-      textAlign: "center",
-    }}>
-      <h1 style={{ fontSize: "4rem", marginBottom: "3rem", color: "#7a4e3a" }}>
-        Emergency Page
-      </h1>
+    <div className="min-h-screen bg-gradient-to-br from-white to-purple-100">
+      {/* BACK BUTTON #1 - On Main Emergency Page */}
+      <div className="bg-gradient-to-r from-orange-100 to-pink-200 py-4 px-8 shadow-sm">
+        <Link 
+          to="/"
+          className="text-pink-800 hover:text-pink-900 font-semibold text-2xl flex items-center gap-2" 
+          style={{fontFamily: 'Mali'}}
+        >
+          ← Back to Home
+        </Link>
+      </div>
       
-      <button
-        onClick={handlePanicClick}
-        style={{
-          background: status === "done" ? "#4caf50" : 
-                     status === "loading" ? "#ff9800" : "linear-gradient(to right, #ff4b2b, #ff416c)",
-          color: "white",
-          fontSize: "3rem",
-          padding: "25px 60px",
-          border: "none",
-          borderRadius: "30px",
-          cursor: status === "loading" ? "wait" : "pointer",
-          boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
-          transition: "all 0.3s",
-          fontFamily: "'Mali', cursive, sans-serif",
-          fontWeight: 600,
-          marginBottom: "2rem",
-          minWidth: "300px",
-        }}
-        disabled={status === "loading"}
-      >
-        {status === "idle" && "🚨 Action"}
-        {status === "loading" && "📍 Getting Location..."}
-        {status === "done" && "✅ Help is Coming!"}
-      </button>
-
-      {errorMessage && (
-        <div style={{ 
-          marginTop: "1rem", 
-          color: "#d32f2f",
-          backgroundColor: "#ffebee",
-          padding: "1rem 2rem",
-          borderRadius: "10px",
-          fontSize: "1.5rem",
-          maxWidth: "600px",
-          marginBottom: "1rem"
-        }}>
-          ⚠️ {errorMessage}
-        </div>
-      )}
-
-      {location && (
-        <div style={{ 
-          marginTop: "2rem", 
-          backgroundColor: "#e8f5e9",
-          padding: "1.5rem 3rem",
-          borderRadius: "15px",
-          boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
-        }}>
-          <p style={{ 
-            color: "#2e7d32", 
-            fontSize: "1.8rem",
-            fontWeight: "bold",
-            marginBottom: "0.5rem"
-          }}>
-            📍 Location Captured
-          </p>
-          <p style={{ 
-            color: "#1b5e20",
-            fontSize: "1.5rem",
-            fontFamily: "monospace"
-          }}>
-            {location.latitude.toFixed(6)}, {location.longitude.toFixed(6)}
-            {location.isMock && (
-              <span style={{ 
-                display: "block", 
-                fontSize: "1.2rem", 
-                color: "#f57c00",
-                marginTop: "0.5rem"
-              }}>
-                (Simulated location for demonstration)
-              </span>
-            )}
-          </p>
-        </div>
-      )}
-
-      <div style={{ 
-        marginTop: "3rem", 
-        fontSize: "1.2rem", 
-        color: "#666",
-        maxWidth: "600px",
-        lineHeight: "1.6"
+      <div style={{
+        height: "calc(100vh - 73px)",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        fontSize: "2rem",
+        fontFamily: "'Mali', cursive, sans-serif",
+        padding: "2rem",
+        textAlign: "center",
       }}>
+        <h1 style={{ fontSize: "4rem", marginBottom: "3rem", color: "#7a4e3a" }}>
+          Emergency Page
+        </h1>
+        
+        <button
+          onClick={handlePanicClick}
+          style={{
+            background: status === "done" ? "#4caf50" : 
+                      status === "loading" ? "#ff9800" : "linear-gradient(to right, #ff4b2b, #ff416c)",
+            color: "white",
+            fontSize: "3rem",
+            padding: "25px 60px",
+            border: "none",
+            borderRadius: "30px",
+            cursor: status === "loading" ? "wait" : "pointer",
+            boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
+            transition: "all 0.3s",
+            fontFamily: "'Mali', cursive, sans-serif",
+            fontWeight: 600,
+            marginBottom: "2rem",
+            minWidth: "300px",
+          }}
+          disabled={status === "loading"}
+        >
+          {status === "idle" && "🚨 Action"}
+          {status === "loading" && "📍 Getting Location..."}
+          {status === "done" && "✅ Help is Coming!"}
+        </button>
+
+        {errorMessage && (
+          <div style={{ 
+            marginTop: "1rem", 
+            color: "#d32f2f",
+            backgroundColor: "#ffebee",
+            padding: "1rem 2rem",
+            borderRadius: "10px",
+            fontSize: "1.5rem",
+            maxWidth: "600px",
+            marginBottom: "1rem"
+          }}>
+            ⚠️ {errorMessage}
+          </div>
+        )}
+
+        {location && (
+          <div style={{ 
+            marginTop: "2rem", 
+            backgroundColor: "#e8f5e9",
+            padding: "1.5rem 3rem",
+            borderRadius: "15px",
+            boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+          }}>
+            <p style={{ 
+              color: "#2e7d32", 
+              fontSize: "1.8rem",
+              fontWeight: "bold",
+              marginBottom: "0.5rem"
+            }}>
+              📍 Location Captured
+            </p>
+            <p style={{ 
+              color: "#1b5e20",
+              fontSize: "1.5rem",
+              fontFamily: "monospace"
+            }}>
+              {location.latitude.toFixed(6)}, {location.longitude.toFixed(6)}
+              {location.isMock && (
+                <span style={{ 
+                  display: "block", 
+                  fontSize: "1.2rem", 
+                  color: "#f57c00",
+                  marginTop: "0.5rem"
+                }}>
+                  (Simulated location for demonstration)
+                </span>
+              )}
+            </p>
+          </div>
+        )}
+
+        <div style={{ 
+          marginTop: "3rem", 
+          fontSize: "1.2rem", 
+          color: "#666",
+          maxWidth: "600px",
+          lineHeight: "1.6"
+        }}>
+          
+        </div>
       </div>
     </div>
   );

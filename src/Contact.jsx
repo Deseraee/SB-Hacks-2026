@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white-100 to-purple-100">
+    <div className="min-h-screen bg-[#FCF6BD] transition-all duration-1000 flex flex-col">
       {/* Pink Header with Back Button */}
       <div className="bg-gradient-to-r from-orange-100 to-pink-200 py-4 px-8 shadow-sm">
         <Link 

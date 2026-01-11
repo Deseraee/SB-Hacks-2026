@@ -38,8 +38,7 @@ export default function WelcomePage() {
 
   const config = timeConfig[timeOfDay];
   return (
-    <div className={`min-h-screen bg-gradient-to-br ${config.gradient} transition-all duration-1000 flex flex-col`}>
- {/* Navigation Bar */}
+    <div className="min-h-screen bg-[#FCF6BD] transition-all duration-1000 flex flex-col">
  <header className="bg-gradient-to-r from-orange-100 to-orange-200 shadow-sm">
  <nav className="container mx-auto px-4 py-4">
   <div className="flex items-center justify-between">
@@ -109,27 +108,30 @@ export default function WelcomePage() {
   </div>
 </Link>
 
-  {/* Second Flower Button */}
-      <div className="relative w-64 h-64 flex items-center justify-center">
-    {/* Petals */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          {[0, 1, 2, 3, 4, 5].map((i) => (
-        <div
-          key={i}
-          className="absolute w-24 h-24 bg-orange-300 rounded-full"
-          style={{
-            transform: `rotate(${i * 60}deg) translateY(-60px)`,
-          }}
-        />
-      ))}
-    </div>
-    
-    {/* Center Circle */}
-    <div className="relative z-10 w-32 h-32 bg-orange-500 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
-      <span className="text-4xl mb-1">💡</span>
-      <p className="text-white text-sm font-bold">Resources</p>
-    </div>
+{/* Resources Flower Button */}
+<Link 
+  to="/resources" 
+  className="relative w-64 h-64 flex items-center justify-center block"
+>
+  {/* Petals */}
+  <div className="absolute inset-0 flex items-center justify-center">
+    {[0, 1, 2, 3, 4, 5].map((i) => (
+      <div
+        key={i}
+        className="absolute w-24 h-24 bg-orange-300 rounded-full"
+        style={{
+          transform: `rotate(${i * 60}deg) translateY(-60px)`,
+        }}
+      />
+    ))}
   </div>
+  
+  {/* Center Circle */}
+  <div className="relative z-10 w-32 h-32 bg-orange-500 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
+    <span className="text-4xl mb-1">💡</span>
+    <p className="text-white text-sm font-bold">Resources</p>
+  </div>
+</Link>
 {/* Emergency Flower Button */}
 <Link 
   to="/emergency" 
