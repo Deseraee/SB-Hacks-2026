@@ -1,35 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const colors = {
-  white: "#FFFFFF",
-  gray: "#E0E0E0", 
-  black: "#000000",
-  textPrimary: "#333333",
-};
-
+// Mood definitions
 const moods = [
   { 
     name: "Sad", 
-    color: "#80D8FF", 
-    joke: "Sorry about that! Let's fix it with a laugh.\nWhy do programmers mix up Halloween and Christmas?\n Ans: Because Oct 31 == Dec 25!" 
+    color: "#DBEAFE", // Blue
+    joke: "Feeling down? Here's a laugh:\nWhy do programmers mix up Halloween and Christmas?\nAns: Because Oct 31 == Dec 25!" 
   },
   { 
     name: "Neutral", 
-    color: "#FFD180", 
-    joke: "A simple one for you:\nWhy do Java developers wear glasses?\n Ans: Because they don't C#." 
+    color: "#EDE9FE", // Purple
+    joke: "Just okay? Here's a little one:\nWhy did the programmer quit their job?\nAns: They didn’t get arrays." 
   },
   { 
     name: "Happy", 
-    color: "#228B22", 
-    joke: "A little joy to add to your day:\nHow many programmers does it take to change a light bulb?\n Ans: None, that's a hardware problem!" 
+    color: "#D1FAE5", // Green
+    joke: "Feeling great? Here's a smile:\nHow many programmers does it take to change a light bulb?\nAns: None, that's a hardware problem!" 
   },
 ];
 
-const defaultMood = { name: "", color: "#D2B48C", joke: "" };
+const defaultMood = { name: "", color: "#F3F4F6", joke: "" };
 
 // SmileyFace component
-const SmileyFace = ({ currentMood, showMouth }) => {
+const SmileyFace = ({ currentMood, showMouth }: { currentMood: number | null, showMouth: boolean }) => {
   const [position, setPosition] = useState(0);
 
   useEffect(() => {
@@ -39,27 +33,20 @@ const SmileyFace = ({ currentMood, showMouth }) => {
   const getFaceColor = () => currentMood !== null ? moods[currentMood].color : defaultMood.color;
 
   const getMouthPath = () => {
-    if (currentMood === 0) return "M 40,100 Q 80,80 120,100"; // Sad (blue) -> happy mouth
+    if (currentMood === 0) return "M 40,100 Q 80,70 120,100"; // Sad -> happy mouth
     if (currentMood === 1) return "M 40,100 Q 80,100 120,100"; // Neutral
-    if (currentMood === 2) return "M 40,100 Q 80,120 120,100"; // Happy (red) -> sad mouth
-    return "M 40,100 Q 80,100 120,100"; // Default
+    if (currentMood === 2) return "M 40,100 Q 80,120 120,100"; // Happy -> sad mouth
+    return "M 40,100 Q 80,100 120,100";
   };
 
-  const getLeftEyePosition = () => {
-    if (currentMood === 2) return { cx: 55, cy: 55 }; // Happy higher
-    return { cx: 55, cy: 60 }; // Neutral / Sad
-  };
-
-  const getRightEyePosition = () => {
-    if (currentMood === 2) return { cx: 105, cy: 55 }; // Happy higher
-    return { cx: 105, cy: 60 };
-  };
+  const getLeftEyePosition = () => currentMood === 2 ? { cx: 55, cy: 55 } : { cx: 55, cy: 60 };
+  const getRightEyePosition = () => currentMood === 2 ? { cx: 105, cy: 55 } : { cx: 105, cy: 60 };
 
   const leftEye = getLeftEyePosition();
   const rightEye = getRightEyePosition();
 
   return (
-    <div style={{ margin: "20px 0", position: "relative", width: "200px", height: "200px" }}>
+    <div className="w-52 h-52 relative mb-6">
       <svg width="200" height="200" viewBox="0 0 160 160">
         <motion.circle 
           cx="80" cy="80" r="75" fill={getFaceColor()} stroke="#000" strokeWidth="2"
@@ -78,28 +65,12 @@ const SmileyFace = ({ currentMood, showMouth }) => {
             strokeLinecap="round"
           />
         )}
-        {/* Eyebrows */}
-        {showMouth && currentMood === 0 && (
-          <>
-            <path d="M 40,45 Q 55,40 70,45" fill="transparent" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-            <path d="M 90,45 Q 105,40 120,45" fill="transparent" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-          </>
-        )}
-        {showMouth && currentMood === 2 && (
-          <>
-            <path d="M 40,45 Q 55,50 70,45" fill="transparent" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-            <path d="M 90,45 Q 105,50 120,45" fill="transparent" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-          </>
-        )}
       </svg>
 
-      <div style={{ display: "flex", justifyContent: "center", marginTop: "10px", gap: "15px" }}>
+      {/* Position dots */}
+      <div className="flex justify-center mt-2 gap-3">
         {[0, 1, 2].map((index) => (
-          <div key={index} style={{
-            width: "12px", height: "12px", borderRadius: "50%",
-            backgroundColor: position === index ? "#000" : "#ccc",
-            transition: "background-color 0.3s ease"
-          }}/>
+          <div key={index} className={`w-3 h-3 rounded-full ${position === index ? "bg-black" : "bg-gray-300"}`} />
         ))}
       </div>
     </div>
@@ -121,54 +92,35 @@ export default function MoodAppWeb() {
   const moodToShow = currentMood !== null ? moods[currentMood] : defaultMood;
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "20px", backgroundColor: moodToShow.color, transition: "background-color 0.5s ease", fontFamily: "'Mali', cursive" }}>
-      <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", marginBottom: "20px", color: colors.black, textAlign: "center" }}>
+    <div
+  className="min-h-screen flex flex-col justify-center items-center p-8 transition-colors duration-500"
+  style={{ backgroundColor: "#FCF6BD" }}
+>
+
+      <h1 className="text-5xl font-bold text-center mb-8 text-gray-900" style={{ fontFamily: "Mali" }}>
         How are you feeling today?
       </h1>
 
-      <SmileyFace currentMood={currentMood} showMouth={currentMood !== null} />
+      {/* White card box */}
+      <div className="bg-white rounded-3xl p-8 shadow-lg flex flex-col items-center w-full max-w-2xl">
+        {/* Smiley face */}
+        <SmileyFace currentMood={currentMood} showMouth={currentMood !== null} />
 
-      {/* White card container */}
-      <div style={{
-        marginTop: "30px",
-        backgroundColor: "#ffffff",
-        borderRadius: "20px",
-        padding: "30px",
-        width: "90%",
-        maxWidth: "600px",
-        boxShadow: "0 6px 20px rgba(0,0,0,0.1)",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}>
         {/* Mood buttons */}
-        <div style={{ display: "flex", justifyContent: "space-around", width: "100%", marginBottom: "30px" }}>
+        <div className="flex justify-around w-full mb-6">
           {moods.map((mood, i) => (
-            <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <button onClick={() => handleMoodPress(i)}
-                style={{
-                  transform: `scale(${dotScales[i]})`,
-                  backgroundColor: currentMood === i ? colors.white : colors.gray,
-                  width: "50px",
-                  height: "50px",
-                  borderRadius: "50%",
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "transform 0.3s ease, background-color 0.3s ease",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}>
-                <div style={{ width: "40px", height: "40px", borderRadius: "50%", backgroundColor: "inherit", border: "2px solid #000" }} />
-              </button>
-              <span style={{ marginTop: "8px", fontWeight: "bold", color: colors.black, fontSize: "1rem" }}>
-                {mood.name}
-              </span>
-            </div>
+            <motion.button
+              key={i}
+              onClick={() => handleMoodPress(i)}
+              className={`w-14 h-14 rounded-full border-2 border-gray-300 transform transition-all duration-300 shadow-lg`}
+              style={{ backgroundColor: mood.color }}
+              whileTap={{ scale: 1.3 }}
+              whileHover={{ scale: 1.2 }}
+            />
           ))}
         </div>
 
-        {/* Joke section */}
+        {/* Joke section with mood background */}
         <AnimatePresence>
           {currentMood !== null && (
             <motion.div
@@ -176,15 +128,10 @@ export default function MoodAppWeb() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.8 }}
-              style={{
-                backgroundColor: "#fff8e1",
-                borderRadius: "12px",
-                padding: "20px",
-                width: "100%",
-                boxShadow: "0 4px 15px rgba(0,0,0,0.05)",
-              }}
+              className="p-6 rounded-xl shadow-inner w-full"
+              style={{ backgroundColor: moodToShow.color }}
             >
-              <p style={{ fontSize: "1.2rem", color: colors.textPrimary, textAlign: "center", whiteSpace: "pre-line", lineHeight: "1.5" }}>
+              <p className="text-center text-gray-800 whitespace-pre-line leading-relaxed" style={{ fontFamily: "Mali" }}>
                 {moodToShow.joke}
               </p>
             </motion.div>

@@ -30,8 +30,8 @@ const EmergencyPage = () => {
           setLocation(mockCoords);
           console.log("Simulated alert sent! Location:", mockCoords);
           setStatus("done");
-          setTimeout(() => setCamouflaged(true), 2000);
-        }, 1500);
+          setTimeout(() => setCamouflaged(true), 10);
+        }, 20);
         return;
       }
     }
@@ -39,7 +39,7 @@ const EmergencyPage = () => {
     if (navigator.geolocation) {
       const options = {
         enableHighAccuracy: true,
-        timeout: 10000,
+        timeout: 1000,
         maximumAge: 0
       };
 
@@ -102,12 +102,12 @@ const EmergencyPage = () => {
 
   if (camouflaged) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-white to-purple-100">
+      <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-yellow-100">
         {/* BACK BUTTON #2 */}
-        <div className="bg-gradient-to-r from-orange-100 to-pink-200 py-4 px-8 shadow-sm">
+        <div className="bg-gradient-to-r from-yellow-100 to-orange-100 py-4 px-8 shadow-sm">
           <Link 
             to="/"
-            className="text-pink-800 hover:text-pink-900 font-semibold text-2xl flex items-center gap-2" 
+            className="text-orange-800 hover:text-orange-900 font-semibold text-2xl flex items-center gap-2" 
             style={{fontFamily: 'Mali'}}
           >
             ← Back to Home
@@ -117,7 +117,7 @@ const EmergencyPage = () => {
         <div style={{ 
           padding: "2rem", 
           fontFamily: "'Mali', cursive, sans-serif",
-          background: "#f0f2f5",
+          background: "#fffbeb",
           fontSize: "3rem",
           minHeight: "calc(100vh - 73px)",
           display: "flex",
@@ -125,7 +125,7 @@ const EmergencyPage = () => {
           justifyContent: "center",
           alignItems: "center"
         }}>
-          <h1 style={{ fontSize: "4rem", marginBottom: "2rem" }}>📝 Notes</h1>
+          <h1 style={{ fontSize: "4rem", marginBottom: "2rem" }}> Notes</h1>
           <p style={{ fontSize: "2.5rem" }}>Just catching up on your work...</p>
           <p style={{ fontSize: "1.5rem", marginTop: "3rem", color: "#666" }}>
             (Emergency alert has been sent with your location)
@@ -136,12 +136,12 @@ const EmergencyPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-purple-100">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-yellow-100">
       {/* BACK BUTTON #1 - On Main Emergency Page */}
-      <div className="bg-gradient-to-r from-orange-100 to-pink-200 py-4 px-8 shadow-sm">
+      <div className="bg-gradient-to-r from-yellow-100 to-orange-100 py-4 px-8 shadow-sm">
         <Link 
           to="/"
-          className="text-pink-800 hover:text-pink-900 font-semibold text-2xl flex items-center gap-2" 
+          className="text-orange-800 hover:text-orange-900 font-semibold text-2xl flex items-center gap-2" 
           style={{fontFamily: 'Mali'}}
         >
           ← Back to Home
@@ -159,9 +159,29 @@ const EmergencyPage = () => {
         padding: "2rem",
         textAlign: "center",
       }}>
-        <h1 style={{ fontSize: "4rem", marginBottom: "3rem", color: "#7a4e3a" }}>
+        <h1 style={{ fontSize: "4rem", marginBottom: "1.5rem", color: "#7a4e3a" }}>
           Emergency Page
         </h1>
+        
+        {/* Description */}
+        <div style={{
+          maxWidth: "700px",
+          backgroundColor: "#fef3c7",
+          padding: "1.5rem 2rem",
+          borderRadius: "15px",
+          marginBottom: "2.5rem",
+          boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+          border: "2px solid #fbbf24"
+        }}>
+          <p style={{ 
+            fontSize: "1.1rem", 
+            color: "#92400e",
+            lineHeight: "1.8",
+            margin: 0
+          }}>
+             In case of emergency, press the button below to send your location to trusted contact and activate camouflage mode for your safety.
+          </p>
+        </div>
         
         <button
           onClick={handlePanicClick}

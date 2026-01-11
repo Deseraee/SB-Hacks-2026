@@ -16,37 +16,37 @@ export default function Contact() {
       </div>
       
       <div className="p-8">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h1 className="text-5xl font-bold text-center mb-8 text-gray-900" style={{fontFamily: 'Mali'}}>
             Contact Us
           </h1>
           
-          <div className="bg-white p-8 rounded-2xl shadow-lg">
-            <div className="space-y-6">
+          <div className="bg-white p-12 rounded-2xl shadow-lg">
+            <div className="space-y-8">
               <div className="text-center">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4" style={{fontFamily: 'Mali'}} >Get in Touch</h2>
-                <p className="text-gray-600 mb-8" style={{fontFamily: 'Mali'}}>We'd love to hear from you!</p>
+                <h2 className="text-3xl font-bold text-gray-800 mb-4" style={{fontFamily: 'Mali'}} >Get in Touch</h2>
+                <p className="text-xl text-gray-600 mb-8" style={{fontFamily: 'Mali'}}>We'd love to hear from you!</p>
               </div>
               
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-pink-50 p-6 rounded-lg">
-                  <h3 className="font-bold text-lg mb-2" style={{fontFamily: 'Mali'}} >Email</h3>
-                  <p className="text-gray-700" style={{fontFamily: 'Mali'}} >contact@womenempowerment.com</p>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-pink-50 p-8 rounded-lg">
+                  <h3 className="font-bold text-xl mb-3" style={{fontFamily: 'Mali'}} >Email</h3>
+                  <p className="text-gray-700 text-lg" style={{fontFamily: 'Mali'}} >contact@womenempowerment.com</p>
                 </div>
                 
-                <div className="bg-purple-50 p-6 rounded-lg">
-                  <h3 className="font-bold text-lg mb-2" style={{fontFamily: 'Mali'}} >Phone</h3>
-                  <p className="text-gray-700"style={{fontFamily: 'Mali'}} >(123) 456-7890</p>
+                <div className="bg-purple-50 p-8 rounded-lg">
+                  <h3 className="font-bold text-xl mb-3" style={{fontFamily: 'Mali'}} >Phone</h3>
+                  <p className="text-gray-700 text-lg" style={{fontFamily: 'Mali'}} >(123) 456-7890</p>
                 </div>
                 
-                <div className="bg-blue-50 p-6 rounded-lg">
-                  <h3 className="font-bold text-lg mb-2"style={{fontFamily: 'Mali'}}>Location</h3>
-                  <p className="text-gray-700"style={{fontFamily: 'Mali'}} >Santa Barbara, CA</p>
+                <div className="bg-blue-50 p-8 rounded-lg">
+                  <h3 className="font-bold text-xl mb-3" style={{fontFamily: 'Mali'}}>Location</h3>
+                  <p className="text-gray-700 text-lg" style={{fontFamily: 'Mali'}} >Santa Barbara, CA</p>
                 </div>
                 
-                <div className="bg-yellow-50 p-6 rounded-lg">
-                  <h3 className="font-bold text-lg mb-2"style={{fontFamily: 'Mali'}}>Github</h3>
-                  <p className="text-gray-700"style={{fontFamily: 'Mali'}} >https://github.com/Deseraee/SB-Hacks-2026</p>
+                <div className="bg-yellow-50 p-8 rounded-lg">
+                  <h3 className="font-bold text-xl mb-3" style={{fontFamily: 'Mali'}}>Github</h3>
+                  <p className="text-gray-700 text-lg" style={{fontFamily: 'Mali'}} >https://github.com/Deseraee/SB-Hacks-2026</p>
                 </div>
               </div>
             </div>

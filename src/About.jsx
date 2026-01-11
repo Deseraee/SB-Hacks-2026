@@ -2,6 +2,7 @@ import { Link} from "react-router-dom";
 import ourMissionImg from "./assets/ourmission.png";
 import ourValuesImg from "./assets/ourvalues.png";
 import logoImg from "./assets/logo.png"
+
 const THEME = {
   bg: "#fff2de",
   text: "#3b2f2a",
@@ -16,7 +17,7 @@ export default function About() {
   const values = [
     {
       title: "Empathy",
-      desc: "We listen with care and respond with support that validates women’s experiences.",
+      desc: "We listen with care and respond with support that validates women's experiences.",
     },
     {
       title: "Respect",
@@ -35,13 +36,14 @@ export default function About() {
   return (
     <div
       style={{
-        backgroundColor: THEME.bg,
+        backgroundColor: "#FCF6BD",
         color: THEME.text,
         minHeight: "100vh",
         width: "100%",
+        fontFamily: 'Mali, cursive, sans-serif',
       }}
     >
-      {/* Add the Back Button Container Here */}
+      {/* Back Button Container */}
       <div style={{
         background: "linear-gradient(to right, #fdf2f8, #fce7f3)", 
         padding: "1rem 2rem",
@@ -52,7 +54,7 @@ export default function About() {
             color: "#7a4e3a",
             textDecoration: "none",
             fontWeight: 600,
-            fontSize: "1.25rem",
+            fontSize: "1.5rem",
             display: "flex",
             alignItems: "center",
             gap: "0.5rem",
@@ -71,16 +73,18 @@ export default function About() {
       
       <div style={styles.page}>
         <section style={styles.section}>
-    <img
-        src={logoImg}
-        alt="EmpoweringHer community illustration"
-        style={styles.logoImg}
-    />
+          <img
+            src={logoImg}
+            alt="EmpoweringHer community illustration"
+            style={styles.logoImg}
+          />
 
-          <h1 style={{ ...styles.title, color: THEME.heading }}>Who we are</h1>
+          <h1 style={{ ...styles.title, color: THEME.heading, fontFamily: 'Mali, cursive, sans-serif' }}>
+            Who We Are
+          </h1>
 
           <div style={styles.textBlock}>
-            <p style={styles.text}>
+            <p style={{ ...styles.text, fontFamily: 'Mali, cursive, sans-serif' }}>
               Empowering Her was created to support women's rights and help them
               feel confident standing up for themselves, especially in vulnerable
               situations. The project combines an AI assistant with emergency
@@ -88,13 +92,13 @@ export default function About() {
               most.
             </p>
 
-            <p style={styles.text}>
+            <p style={{ ...styles.text, fontFamily: 'Mali, cursive, sans-serif' }}>
               We believe that access to reliable information, emotional and
               thoughtful guidance plays a key role in helping women navigate those
               situations.
             </p>
 
-            <p style={styles.text}>
+            <p style={{ ...styles.text, fontFamily: 'Mali, cursive, sans-serif' }}>
               Our AI-driven assistant Athena is designed to be welcoming, direct,
               and supportive, helping women understand their rights, options, and
               how to better position themselves.
@@ -109,10 +113,12 @@ export default function About() {
             style={styles.missionImage}
           />
 
-          <h2 style={{ ...styles.subtitle, color: THEME.heading }}>Our Mission</h2>
+          <h2 style={{ ...styles.subtitle, color: THEME.heading, fontFamily: 'Mali, cursive, sans-serif' }}>
+            Our Mission
+          </h2>
 
           <div style={styles.missionContent}>
-            <p style={styles.text}>
+            <p style={{ ...styles.text, fontFamily: 'Mali, cursive, sans-serif' }}>
               To empower women through accessible technology, reliable resources,
               and provide a safe conversational space.
             </p>
@@ -126,7 +132,9 @@ export default function About() {
             style={styles.valuesImage}
           />
 
-          <h2 style={{ ...styles.subtitle, color: THEME.heading }}>Our Values</h2>
+          <h2 style={{ ...styles.subtitle, color: THEME.heading, fontFamily: 'Mali, cursive, sans-serif' }}>
+            Our Values
+          </h2>
 
           <div style={styles.valuesGrid}>
             {values.map((v) => (
@@ -147,10 +155,12 @@ export default function About() {
                   e.currentTarget.style.boxShadow = THEME.cardShadow;
                 }}
               >
-                <h3 style={{ ...styles.valueTitle, color: THEME.heading }}>
+                <h3 style={{ ...styles.valueTitle, color: THEME.heading, fontFamily: 'Mali, cursive, sans-serif' }}>
                   {v.title}
                 </h3>
-                <p style={{ ...styles.valueText, color: THEME.text }}>{v.desc}</p>
+                <p style={{ ...styles.valueText, color: THEME.text, fontFamily: 'Mali, cursive, sans-serif' }}>
+                  {v.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -162,88 +172,95 @@ export default function About() {
 
 const styles = {
   page: {
-    maxWidth: "900px",
+    maxWidth: "1200px",
     margin: "0 auto",
-    padding: "4rem 2rem",
-    fontFamily: "Mali, system-ui, sans-serif",
+    padding: "4rem 3rem",
+    fontFamily: "Mali, cursive, sans-serif",
   },
   section: {
-    marginBottom: "3rem",
+    marginBottom: "5rem",
   },
   title: {
-    fontSize: "2.8rem",
-    marginBottom: "1rem",
+    fontSize: "4rem",
+    fontWeight: "bold",
+    marginBottom: "2.5rem",
     textAlign: "center",
+    fontFamily: "Mali, cursive, sans-serif",
+    letterSpacing: "0.02em",
   },
   subtitle: {
-    fontSize: "1.8rem",
-    marginBottom: "0.8rem",
+    fontSize: "3rem",
+    fontWeight: "bold",
+    marginBottom: "2rem",
     textAlign: "center",
+    fontFamily: "Mali, cursive, sans-serif",
+    letterSpacing: "0.02em",
   },
   textBlock: {
-    maxWidth: "700px",
+    maxWidth: "100%",
     margin: "0 auto",
   },
   text: {
-    fontSize: "1.1rem",
-    lineHeight: "1.8",
-    marginBottom: "1rem",
-    marginBottom: "1.4rem",
+    fontSize: "1.35rem",
+    lineHeight: "2",
+    marginBottom: "2rem",
     textAlign: "justify",
     textJustify: "inter-word",
+    fontFamily: "Mali, cursive, sans-serif",
   },
   missionContent: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     textAlign: "center",
-    maxWidth: "700px",
+    maxWidth: "100%",
     margin: "0 auto",
   },
   missionImage: {
-    width: "250px",
+    width: "300px",
     height: "auto",
-    margin: "0 auto 1.5rem",
+    margin: "0 auto 2rem",
     display: "block",
   },
   valuesImage: {
-    width: "250px",
+    width: "300px",
     height: "auto",
-    margin: "0 auto 1.5rem",
+    margin: "0 auto 2rem",
     display: "block",
   },
   valuesGrid: {
     display: "grid",
     gridTemplateColumns: "repeat(4, 1fr)",
-    gap: "1.5rem",
-    marginTop: "1.5rem",
+    gap: "2rem",
+    marginTop: "2.5rem",
   },
   valueCard: {
- backgroundColor: "#fff2de",   
-  borderRadius: "20px",
-  padding: "1.6rem",
-  transition: "transform 180ms ease, box-shadow 180ms ease",
-  cursor: "pointer",
-  boxShadow: "0 12px 30px rgba(0,0,0,0.06)",
+    backgroundColor: "#fff2de",   
+    borderRadius: "20px",
+    padding: "2rem",
+    transition: "transform 180ms ease, box-shadow 180ms ease",
+    cursor: "pointer",
+    boxShadow: "0 12px 30px rgba(0,0,0,0.06)",
   },
   valueTitle: {
     margin: 0,
-    fontSize: "1.15rem",
-    fontWeight: 800,
-    marginBottom: "0.6rem",
+    fontSize: "1.5rem",
+    fontWeight: "bold",
+    marginBottom: "1rem",
     textAlign: "left",
+    fontFamily: "Mali, cursive, sans-serif",
   },
   valueText: {
     margin: 0,
-    fontSize: "1rem",
-    lineHeight: "1.6",
+    fontSize: "1.1rem",
+    lineHeight: "1.7",
     opacity: 0.92,
+    fontFamily: "Mali, cursive, sans-serif",
   },
- logoImg: {
-  width: "560px",
-  height: "auto",
-  margin: "0 auto 1.0rem",
-  display: "block",
-},
-
+  logoImg: {
+    width: "500px",
+    height: "auto",
+    margin: "0 auto 2rem",
+    display: "block",
+  },
 };
