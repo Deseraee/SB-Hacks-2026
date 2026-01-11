@@ -54,12 +54,12 @@ export default function WelcomePage() {
           <div className="flex gap-12">
           <Link 
           to="/contact"
-          className="px-3 py-2 text-gray-800 hover:text-pink-600 font-semibold transition-colors text-2xl" style={{fontFamily: 'Mali'}}>
+          className="px-3 py-2 text-gray-800 hover:text-pink-400 font-semibold transition-colors text-2xl" style={{fontFamily: 'Mali'}}>
             Contact
           </Link>
           <Link 
           to="/about"
-          className="px-3 py-2 text-gray-800 hover:text-pink-600 font-semibold transition-colors text-2xl"style={{fontFamily: 'Mali'}}
+          className="px-3 py-2 text-gray-800 hover:text-pink-400 font-semibold transition-colors text-2xl"style={{fontFamily: 'Mali'}}
 >
   About Us
 </Link>
@@ -77,33 +77,37 @@ export default function WelcomePage() {
           </h2>
           
           <p className="text-xl text-black-600 mb-12 max-w-2xl mx-auto" style={{fontFamily: 'Mali'}}>
-          This application is focused on empowering women! but is currently under construction.
+          Welcome to Empowering Her! This application is focused on empowering women! 
           </p>
         </div>
 
   {/* Feature Cards */}
         <div className="flex justify-center gap-32 max-w-6xl mx-auto mt-24 px-4" style={{fontFamily: 'Mali'}}>
 
-  {/* First Flower Button */}
-        <div className="relative w-64 h-64 flex items-center justify-center">
-      {/* Petals */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          {[0, 1, 2, 3, 4, 5].map((i) => (
-        <div
-          key={i}
-          className="absolute w-24 h-24 bg-orange-200 rounded-full"
-          style={{
-            transform: `rotate(${i * 60}deg) translateY(-60px)`,
-          }}
-        />
-      ))}
-    </div>
-    
-  {/* Center Circle */}
-    <div className="relative z-10 w-32 h-32 bg-orange-300 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
-      <p className="text-white text-sm font-bold">Mood board</p>
-    </div>
+ {/* Mood Board Flower Button */}
+<Link 
+  to="/mood" 
+  className="relative w-64 h-64 flex items-center justify-center block"
+>
+  {/* Petals */}
+  <div className="absolute inset-0 flex items-center justify-center">
+    {[0, 1, 2, 3, 4, 5].map((i) => (
+      <div
+        key={i}
+        className="absolute w-24 h-24 bg-orange-200 rounded-full"
+        style={{
+          transform: `rotate(${i * 60}deg) translateY(-60px)`,
+        }}
+      />
+    ))}
   </div>
+  
+  {/* Center Circle */}
+  <div className="relative z-10 w-32 h-32 bg-orange-300 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
+    <span className="text-4xl mb-1">😊</span> {/* Added smiley emoji */}
+    <p className="text-white text-sm font-bold">Mood Board</p>
+  </div>
+</Link>
 
   {/* Second Flower Button */}
       <div className="relative w-64 h-64 flex items-center justify-center">
@@ -161,8 +165,8 @@ export default function WelcomePage() {
       </p>
 
       {/* ElvenLabs ConvAI Widget */}
-        <div className="mt-6">
-        <elevenlabs-convai agent-id="agent_5701kemqx0kfeqmb2z4gcv6e748d"></elevenlabs-convai>
+        <div className="mt-70">
+        <elevenlabs-convai agent-id="agent_5701kemqx0kfeqmb2z4gcv6e748d"></elevenlabs-convai><script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
         </div>
         </div>
       </footer>

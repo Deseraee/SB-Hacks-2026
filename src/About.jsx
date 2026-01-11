@@ -43,9 +43,8 @@ export default function About() {
     >
       {/* Add the Back Button Container Here */}
       <div style={{
-        backgroundColor: "linear-gradient(to right, #ffe4b3, #ffccd6)",
+        background: "linear-gradient(to right, #fdf2f8, #fce7f3)", 
         padding: "1rem 2rem",
-        boxShadow: "0 2px 8px rgba(0,0,0,0.06)"
       }}>
         <Link 
           to="/"
@@ -57,7 +56,7 @@ export default function About() {
             display: "flex",
             alignItems: "center",
             gap: "0.5rem",
-            fontFamily: 'Mali, cursive'
+            fontFamily: 'Mali, cursive, sans-serif'
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.color = "#9c6851";
@@ -166,7 +165,7 @@ const styles = {
     maxWidth: "900px",
     margin: "0 auto",
     padding: "4rem 2rem",
-    fontFamily: "Poppins, system-ui, sans-serif",
+    fontFamily: "Mali, system-ui, sans-serif",
   },
   section: {
     marginBottom: "3rem",

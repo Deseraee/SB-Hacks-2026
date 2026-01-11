@@ -22,11 +22,11 @@ const EmergencyPage = () => {
           setStatus("done");
 
           // After 2 seconds, camouflage the page
-          setTimeout(() => setCamouflaged(true), 2000);
+          setTimeout(() => setCamouflaged(true), 300);
         },
         () => {
           console.error("Unable to get location.");
-          setStatus("idle"); // revert if failed
+          setStatus("idle"); 
         }
       );
     }
@@ -34,7 +34,11 @@ const EmergencyPage = () => {
 
   if (camouflaged) {
     return (
-      <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
+      <div style={{ padding: "2rem", 
+        fontFamily: "'Mali', cursive, sans-serif", // Updated font
+        background: "#f0f2f5",
+        fontSize: "3rem",
+        minHeight: "100vh" }}>
         <h1>Notes</h1>
         <p>Just catching up on your work...</p>
       </div>
@@ -48,7 +52,8 @@ const EmergencyPage = () => {
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
-      fontFamily: "sans-serif",
+      fontSize: "2rem",
+      fontFamily: "'Mali', cursive, sans-serif",
       background: "#f0f2f5",
     }}>
       <h1>Emergency Page</h1>
@@ -56,14 +61,16 @@ const EmergencyPage = () => {
         onClick={handlePanicClick}
         style={{
           background: status === "done" ? "#4caf50" : "linear-gradient(to right, #ff4b2b, #ff416c)",
-          color: "white",
-          fontSize: "2rem",
+          ccolor: "white",
+          fontSize: "3rem",
           padding: "20px 50px",
           border: "none",
           borderRadius: "30px",
           cursor: "pointer",
           boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
           transition: "all 0.2s",
+          fontFamily: "'Mali', cursive, sans-serif", // Added font to button
+          fontWeight: 600,
         }}
       >
         {status === "idle" && "Action"}
