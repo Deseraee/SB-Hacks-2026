@@ -1,3 +1,4 @@
+import { Link} from "react-router-dom";
 import ourMissionImg from "./assets/ourmission.png";
 import ourValuesImg from "./assets/ourvalues.png";
 import logoImg from "./assets/logo.png"
@@ -40,6 +41,35 @@ export default function About() {
         width: "100%",
       }}
     >
+      {/* Add the Back Button Container Here */}
+      <div style={{
+        backgroundColor: "linear-gradient(to right, #ffe4b3, #ffccd6)",
+        padding: "1rem 2rem",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.06)"
+      }}>
+        <Link 
+          to="/"
+          style={{
+            color: "#7a4e3a",
+            textDecoration: "none",
+            fontWeight: 600,
+            fontSize: "1.25rem",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            fontFamily: 'Mali, cursive'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = "#9c6851";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = "#7a4e3a";
+          }}
+        >
+          ← Back to Home
+        </Link>
+      </div>
+      
       <div style={styles.page}>
         <section style={styles.section}>
     <img

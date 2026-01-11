@@ -58,9 +58,8 @@ export default function WelcomePage() {
             Contact
           </Link>
           <Link 
-  to="/about"
-  className="px-3 py-2 text-gray-800 hover:text-pink-600 font-semibold transition-colors text-2xl"
-  style={{fontFamily: 'Mali'}}
+          to="/about"
+          className="px-3 py-2 text-gray-800 hover:text-pink-600 font-semibold transition-colors text-2xl"style={{fontFamily: 'Mali'}}
 >
   About Us
 </Link>
@@ -127,27 +126,30 @@ export default function WelcomePage() {
       <p className="text-white text-sm font-bold">Resources</p>
     </div>
   </div>
-  {/* third Flower Button */}
-  <div className="relative w-64 h-64 flex items-center justify-center">
-      {/* Petals */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          {[0, 1, 2, 3, 4, 5].map((i) => (
-        <div
-          key={i}
-          className="absolute w-24 h-24 bg-red-200 rounded-full"
-          style={{
-            transform: `rotate(${i * 60}deg) translateY(-60px)`,
-          }}
-        />
-      ))}
-    </div>
-    
-  {/* Center Circle */}
-    <div className="relative z-10 w-32 h-32 bg-red-300 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
-      <span className="text-4xl mb-1">🙈</span>
-      <p className="text-white text-sm font-bold">Work in progress</p>
-    </div>
+{/* Emergency Flower Button */}
+<Link 
+  to="/emergency" 
+  className="relative w-64 h-64 flex items-center justify-center block"
+>
+  {/* Petals */}
+  <div className="absolute inset-0 flex items-center justify-center">
+    {[0, 1, 2, 3, 4, 5].map((i) => (
+      <div
+        key={i}
+        className="absolute w-24 h-24 bg-red-500 rounded-full"
+        style={{
+          transform: `rotate(${i * 60}deg) translateY(-60px)`,
+        }}
+      />
+    ))}
   </div>
+  
+  {/* Center Circle */}
+  <div className="relative z-10 w-32 h-32 bg-red-600 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
+    <span className="text-4xl mb-1">🚨</span>
+    <p className="text-white text-sm font-bold">Emergency</p>
+  </div>
+</Link>
   
 </div>
       </main>
