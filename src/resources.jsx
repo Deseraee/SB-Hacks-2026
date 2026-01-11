@@ -53,7 +53,7 @@ export default function Resources() {
               </p>
               <p style={styles.p}>
                 Try saying simple scripts, such as: 
-                <span style={styles.quote}> "No." "Stop." "I'm not comfortable with that."</span>
+                <span style={styles.quote}>"No." "Stop." "I'm not comfortable with that."</span>
               </p>
               <p style={styles.p}>
                 If you can, save details of moments, it can help later, but know that you don't need to have evidence to seek any type of support. 

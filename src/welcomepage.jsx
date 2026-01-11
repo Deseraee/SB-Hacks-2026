@@ -127,7 +127,7 @@ export default function WelcomePage() {
   </div>
   
   {/* Center Circle */}
-  <div className="relative z-10 w-32 h-32 bg-orange-500 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
+  <div className="relative z-10 w-32 h-32 bg-orange-400 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
     <span className="text-4xl mb-1">💡</span>
     <p className="text-white text-sm font-bold">Resources</p>
   </div>
@@ -142,7 +142,7 @@ export default function WelcomePage() {
     {[0, 1, 2, 3, 4, 5].map((i) => (
       <div
         key={i}
-        className="absolute w-24 h-24 bg-red-500 rounded-full"
+        className="absolute w-24 h-24 bg-red-400 rounded-full"
         style={{
           transform: `rotate(${i * 60}deg) translateY(-60px)`,
         }}
@@ -151,7 +151,7 @@ export default function WelcomePage() {
   </div>
   
   {/* Center Circle */}
-  <div className="relative z-10 w-32 h-32 bg-red-600 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
+  <div className="relative z-10 w-32 h-32 bg-red-500 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
     <span className="text-4xl mb-1">🚨</span>
     <p className="text-white text-sm font-bold">Emergency</p>
   </div>

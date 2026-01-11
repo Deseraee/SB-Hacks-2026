@@ -136,14 +136,27 @@ const styles = {
     letterSpacing: "0.02em",
   },
   textBlock: { maxWidth: "100%", margin: "0 auto" },
-  text: { fontSize: "1.35rem", lineHeight: "2", marginBottom: "2rem", textAlign: "justify", textJustify: "inter-word" },
+  // CHANGED TEXT STYLING TO MATCH RESOURCES PAGE
+  text: { 
+    fontSize: "1.3rem", // Changed from 1.35rem to match Resources page
+    lineHeight: "1.9", // Changed from 2 to match Resources page
+    marginBottom: "1rem", // Changed from 2rem to match Resources page
+    textAlign: "justify", 
+    textJustify: "inter-word",
+    color: "#4a3a25", // Added color from Resources page
+  },
   missionContent: { display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: "100%", margin: "0 auto" },
   missionImage: { width: "300px", height: "auto", margin: "0 auto 2rem", display: "block" },
   valuesImage: { width: "300px", height: "auto", margin: "0 auto 2rem", display: "block" },
   valuesGrid: { display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "2rem", marginTop: "2.5rem" },
   valueCard: { borderRadius: "20px", padding: "2rem", transition: "transform 180ms ease, box-shadow 180ms ease", cursor: "pointer", boxShadow: "0 12px 30px rgba(0,0,0,0.06)" },
   valueTitle: { margin: 0, fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem", textAlign: "left" },
-  valueText: { margin: 0, fontSize: "1.1rem", lineHeight: "1.7", opacity: 0.92 },
+  valueText: { 
+    margin: 0, 
+    fontSize: "1rem", // Changed from 1.1rem to match Resources page
+    lineHeight: "1.9", // Changed from 1.7 to match Resources page
+    opacity: 0.92,
+    color: "#4a3a25", // Added color from Resources page
+  },
   logoImg: { width: "500px", height: "auto", margin: "0 auto 2rem", display: "block" },
 };
-

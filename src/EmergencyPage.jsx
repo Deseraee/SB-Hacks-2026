@@ -144,6 +144,62 @@ const EmergencyPage = () => {
           ← Back to Home
         </Link>
       </div>
+  
+      {/* Small Flower Button - Fixed to Bottom Left Side */}
+<div style={{ 
+  position: "fixed", 
+  left: "2rem", 
+  bottom: "2rem",  // Changed from top to bottom
+  transform: "none", // Removed translateY since we're using bottom
+  width: "100px", 
+  height: "100px",
+  zIndex: 50,
+  cursor: "pointer" // Added cursor for better UX
+}}>
+  {/* Petals */}
+  <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+    {[0, 1, 2, 3, 4, 5].map((i) => (
+      <div
+        key={i}
+        style={{
+          position: "absolute",
+          width: "40px",
+          height: "40px",
+          backgroundColor: "#fda4af",
+          borderRadius: "50%",
+          transform: `rotate(${i * 60}deg) translateY(-30px)`,
+        }}
+      />
+    ))}
+  </div>
+        
+        {/* Center Circle Button */}
+        <button
+          onClick={() => alert("Info: This emergency button sends your location to trusted contacts")}
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 10,
+            width: "50px",
+            height: "50px",
+            backgroundColor: "#fb7185",
+            borderRadius: "50%",
+            border: "none",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "1.5rem",
+            cursor: "pointer",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+            transition: "transform 0.2s",
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = "translate(-50%, -50%) scale(1.15)"}
+          onMouseLeave={(e) => e.currentTarget.style.transform = "translate(-50%, -50%) scale(1)"}
+        >
+        </button>
+      </div>
       
       <div style={{
         height: "calc(100vh - 73px)",
@@ -156,6 +212,7 @@ const EmergencyPage = () => {
         padding: "2rem",
         textAlign: "center",
       }}>
+        {/* Rest of your existing code stays exactly the same */}
         <h1 style={{ 
           fontSize: "4rem", 
           marginBottom: "1.5rem", 
@@ -184,6 +241,8 @@ const EmergencyPage = () => {
              In case of emergency, press the button below to send your location to trusted contact and activate camouflage mode for your safety.
           </p>
         </div>
+
+        
         
         <button
           onClick={handlePanicClick}
