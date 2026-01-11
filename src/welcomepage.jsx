@@ -26,15 +26,12 @@ export default function WelcomePage() {
 
   const timeConfig = {
     morning: {
-      gradient: 'from-amber-200 to-pink-200',
       greeting: 'Good Morning!',
     },
     afternoon: {
-      gradient: 'from-amber-300 via-orange-300 to-yellow-200',
       greeting: 'Good Afternoon!',
     },
     night: {
-      gradient: 'from-[#0A192F] via-[#1E3A8A] to-[#0F172A]',
       greeting: 'Good Evening!',
     },
   };
@@ -43,6 +40,7 @@ export default function WelcomePage() {
   return (
     <div className={`min-h-screen bg-gradient-to-br ${config.gradient} transition-all duration-1000 flex flex-col`}>
  {/* Navigation Bar */}
+ <header className="bg-gradient-to-r from-orange-100 to-orange-200 shadow-sm">
  <nav className="container mx-auto px-4 py-4">
   <div className="flex items-center justify-between">
     {/* Logo on the left - only ONE logo needed */}
@@ -59,12 +57,18 @@ export default function WelcomePage() {
           className="px-3 py-2 text-gray-800 hover:text-pink-600 font-semibold transition-colors text-2xl" style={{fontFamily: 'Mali'}}>
             Contact
           </Link>
-            <button className="absolute right-1 px-3 py-2 text-gray-800 hover:text-pink-600 font-semibold transition-colors text-2xl" style={{fontFamily: 'Mali'}}>
-            About Us
-            </button>
+          <Link 
+  to="/about"
+  className="px-3 py-2 text-gray-800 hover:text-pink-600 font-semibold transition-colors text-2xl"
+  style={{fontFamily: 'Mali'}}
+>
+  About Us
+</Link>
           </div>
         </div>
       </nav>
+      </header>
+      
 
       <main className="container mx-auto px-4 py-16 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
@@ -88,7 +92,7 @@ export default function WelcomePage() {
           {[0, 1, 2, 3, 4, 5].map((i) => (
         <div
           key={i}
-          className="absolute w-24 h-24 bg-purple-300 rounded-full"
+          className="absolute w-24 h-24 bg-orange-200 rounded-full"
           style={{
             transform: `rotate(${i * 60}deg) translateY(-60px)`,
           }}
@@ -97,8 +101,7 @@ export default function WelcomePage() {
     </div>
     
   {/* Center Circle */}
-    <div className="relative z-10 w-32 h-32 bg-purple-500 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
-      <span className="text-4xl mb-1">🙈</span>
+    <div className="relative z-10 w-32 h-32 bg-orange-300 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
       <p className="text-white text-sm font-bold">Mood board</p>
     </div>
   </div>
@@ -110,7 +113,7 @@ export default function WelcomePage() {
           {[0, 1, 2, 3, 4, 5].map((i) => (
         <div
           key={i}
-          className="absolute w-24 h-24 bg-pink-300 rounded-full"
+          className="absolute w-24 h-24 bg-orange-300 rounded-full"
           style={{
             transform: `rotate(${i * 60}deg) translateY(-60px)`,
           }}
@@ -119,7 +122,7 @@ export default function WelcomePage() {
     </div>
     
     {/* Center Circle */}
-    <div className="relative z-10 w-32 h-32 bg-pink-500 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
+    <div className="relative z-10 w-32 h-32 bg-orange-500 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
       <span className="text-4xl mb-1">💡</span>
       <p className="text-white text-sm font-bold">Resources</p>
     </div>
@@ -131,7 +134,7 @@ export default function WelcomePage() {
           {[0, 1, 2, 3, 4, 5].map((i) => (
         <div
           key={i}
-          className="absolute w-24 h-24 bg-blue-300 rounded-full"
+          className="absolute w-24 h-24 bg-red-200 rounded-full"
           style={{
             transform: `rotate(${i * 60}deg) translateY(-60px)`,
           }}
@@ -140,7 +143,7 @@ export default function WelcomePage() {
     </div>
     
   {/* Center Circle */}
-    <div className="relative z-10 w-32 h-32 bg-blue-500 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
+    <div className="relative z-10 w-32 h-32 bg-red-300 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
       <span className="text-4xl mb-1">🙈</span>
       <p className="text-white text-sm font-bold">Work in progress</p>
     </div>
