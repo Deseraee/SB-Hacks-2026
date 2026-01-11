@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 // Mood definitions
 const moods = [
@@ -11,11 +12,11 @@ const moods = [
   { 
     name: "Neutral", 
     color: "#EDE9FE", // Purple
-    joke: "Just okay? Here's a little one:\nWhy did the programmer quit their job?\nAns: They didn’t get arrays." 
+    joke: "Just okay? Here's a little something:\nWhy did the programmer quit their job?\nAns: They didn't get arrays." 
   },
   { 
     name: "Happy", 
-    color: "#D1FAE5", // Green
+    color: "#9DC183", // Green
     joke: "Feeling great? Here's a smile:\nHow many programmers does it take to change a light bulb?\nAns: None, that's a hardware problem!" 
   },
 ];
@@ -92,51 +93,63 @@ export default function MoodAppWeb() {
   const moodToShow = currentMood !== null ? moods[currentMood] : defaultMood;
 
   return (
-    <div
-  className="min-h-screen flex flex-col justify-center items-center p-8 transition-colors duration-500"
-  style={{ backgroundColor: "#FCF6BD" }}
->
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FCF6BD" }}>
+      {/* Back Button Header */}
+      <header className="bg-gradient-to-r from-orange-100 to-orange-200 shadow-md py-1.5 px-4">
+  <nav className="px-4 py-4 flex items-center">
+    <Link 
+      to="/"
+      className="text-gray-800 hover:text-pink-400 font-semibold text-2xl flex items-center gap-1.5"
+      style={{ fontFamily: 'Mali' }}
+    >
+      ← Back to Home
+    </Link>
+  </nav>
+</header>
 
-      <h1 className="text-5xl font-bold text-center mb-8 text-gray-900" style={{ fontFamily: "Mali" }}>
-        How are you feeling today?
-      </h1>
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col justify-center items-center p-8 transition-colors duration-500">
+        <h1 className="text-5xl font-bold text-center mb-8 text-gray-900" style={{ fontFamily: "Mali" }}>
+          How are you feeling today?
+        </h1>
 
-      {/* White card box */}
-      <div className="bg-white rounded-3xl p-8 shadow-lg flex flex-col items-center w-full max-w-2xl">
-        {/* Smiley face */}
-        <SmileyFace currentMood={currentMood} showMouth={currentMood !== null} />
+        {/* White card box */}
+        <div className="bg-white rounded-3xl p-8 shadow-lg flex flex-col items-center w-full max-w-2xl">
+          {/* Smiley face */}
+          <SmileyFace currentMood={currentMood} showMouth={currentMood !== null} />
 
-        {/* Mood buttons */}
-        <div className="flex justify-around w-full mb-6">
-          {moods.map((mood, i) => (
-            <motion.button
-              key={i}
-              onClick={() => handleMoodPress(i)}
-              className={`w-14 h-14 rounded-full border-2 border-gray-300 transform transition-all duration-300 shadow-lg`}
-              style={{ backgroundColor: mood.color }}
-              whileTap={{ scale: 1.3 }}
-              whileHover={{ scale: 1.2 }}
-            />
-          ))}
+          {/* Mood buttons */}
+          <div className="flex justify-around w-full mb-6">
+            {moods.map((mood, i) => (
+              <motion.button
+                key={i}
+                onClick={() => handleMoodPress(i)}
+                className={`w-14 h-14 rounded-full border-2 border-gray-300 transform transition-all duration-300 shadow-lg`}
+                style={{ backgroundColor: mood.color }}
+                whileTap={{ scale: 1.3 }}
+                whileHover={{ scale: 1.2 }}
+              />
+            ))}
+          </div>
+
+          {/* Joke section with mood background */}
+          <AnimatePresence>
+            {currentMood !== null && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.8 }}
+                className="p-6 rounded-xl shadow-inner w-full"
+                style={{ backgroundColor: moodToShow.color }}
+              >
+                <p className="text-center text-gray-800 whitespace-pre-line leading-relaxed" style={{ fontFamily: "Mali" }}>
+                  {moodToShow.joke}
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-
-        {/* Joke section with mood background */}
-        <AnimatePresence>
-          {currentMood !== null && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.8 }}
-              className="p-6 rounded-xl shadow-inner w-full"
-              style={{ backgroundColor: moodToShow.color }}
-            >
-              <p className="text-center text-gray-800 whitespace-pre-line leading-relaxed" style={{ fontFamily: "Mali" }}>
-                {moodToShow.joke}
-              </p>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </div>
   );

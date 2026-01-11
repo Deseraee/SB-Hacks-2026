@@ -127,9 +127,6 @@ const EmergencyPage = () => {
         }}>
           <h1 style={{ fontSize: "4rem", marginBottom: "2rem" }}> Notes</h1>
           <p style={{ fontSize: "2.5rem" }}>Just catching up on your work...</p>
-          <p style={{ fontSize: "1.5rem", marginTop: "3rem", color: "#666" }}>
-            (Emergency alert has been sent with your location)
-          </p>
         </div>
       </div>
     );
@@ -159,9 +156,14 @@ const EmergencyPage = () => {
         padding: "2rem",
         textAlign: "center",
       }}>
-        <h1 style={{ fontSize: "4rem", marginBottom: "1.5rem", color: "#7a4e3a" }}>
-          Emergency Page
-        </h1>
+        <h1 style={{ 
+          fontSize: "4rem", 
+          marginBottom: "1.5rem", 
+          color: "#7a4e3a",
+          fontWeight: "bold"
+}}>
+  Emergency Page
+</h1>
         
         {/* Description */}
         <div style={{
@@ -203,9 +205,9 @@ const EmergencyPage = () => {
           }}
           disabled={status === "loading"}
         >
-          {status === "idle" && "🚨 Action"}
-          {status === "loading" && "📍 Getting Location..."}
-          {status === "done" && "✅ Help is Coming!"}
+          {status === "idle" && "Action"}
+          {status === "loading" && "Getting Location..."}
+          {status === "done" && "Help is Coming!"}
         </button>
 
         {errorMessage && (
@@ -237,7 +239,7 @@ const EmergencyPage = () => {
               fontWeight: "bold",
               marginBottom: "0.5rem"
             }}>
-              📍 Location Captured
+               Location Captured
             </p>
             <p style={{ 
               color: "#1b5e20",

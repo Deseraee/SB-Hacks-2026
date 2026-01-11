@@ -3,16 +3,34 @@ import {Link} from 'react-router-dom';
 
 export default function Resources() {
   return (
-    <div style={styles.page}>
+    <div
+      style={{
+        backgroundColor: "#FCF6BD",
+        minHeight: "100vh",
+        width: "100%",
+        fontFamily: 'Mali, cursive, sans-serif',
+      }}
+    >
+      {/* Header with Back Button - Fixed width like WelcomePage */}
+      <header className="bg-gradient-to-r from-orange-100 to-orange-200 shadow-md py-1.5 px-4">
+        <nav className="px-4 py-4 flex items-center">
+          <Link 
+            to="/"
+            className="text-gray-800 hover:text-pink-400 font-semibold text-2xl flex items-center gap-1.5"
+            style={{ fontFamily: 'Mali' }}
+          >
+            ← Back to Home
+          </Link>
+        </nav>
+      </header>
       <div style={styles.container}>
-        
         <h1 style={styles.title}>Resources</h1>
-        {/* 3 columns */}
+
         <div style={styles.columns}>
           {/* Column 1 */}
           <div style={styles.col}>
             <div style={styles.block}>
-              <h2 style={styles.colTitle}>🛡️ Know your rights</h2>
+              <h2 style={styles.colTitle}> Know your rights</h2>
               <p style={styles.p}>
                 You have the right to set boundaries and be treated with respect by everyone. 
               </p>
@@ -29,7 +47,7 @@ export default function Resources() {
           {/* Column 2 */}
           <div style={styles.col}>
             <div style={styles.block}>
-              <h2 style={styles.colTitle}>🔔 Reminder</h2>
+              <h2 style={styles.colTitle}> Reminder</h2>
               <p style={styles.p}>
                 If something feels off, trust that feeling. Your safety matters more than being "polite."
               </p>
@@ -46,7 +64,7 @@ export default function Resources() {
           {/* Column 3 */}
           <div style={styles.col}>
             <div style={styles.block}>
-              <h2 style={styles.colTitle}>🤝 Not alone</h2>
+              <h2 style={styles.colTitle}> Not alone</h2>
               <p style={styles.p}>
                 You don't have to handle everything by yourself. Seeking support can mean calling a hotline, asking a friend to walk you home, having someone help you report an incident, or simply talking things through.
               </p>
@@ -60,7 +78,7 @@ export default function Resources() {
           </div>
         </div>
 
-        {/* Bottom contact box */}
+        {/* Quick Contacts */}
         <div style={styles.contactsBox}>
           <h3 style={styles.contactsTitle}>Quick contacts</h3>
 
@@ -90,8 +108,7 @@ export default function Resources() {
             <div style={styles.contactItem}>
               <div style={styles.contactLabel}>Global support</div>
               <div style={styles.contactText}>
-                If you're outside the U.S., these trusted resources can help you find
-                confidential support in your country:
+                If you're outside the U.S., these trusted resources can help you find confidential support:
               </div>
               <div style={styles.linkList}>
                 <a
@@ -121,6 +138,7 @@ export default function Resources() {
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );
@@ -130,11 +148,9 @@ const styles = {
   page: {
     minHeight: "100vh",
     width: "100vw",
-    background: "linear-gradient(135deg, #fff9e6 0%, #ffe8d6 50%, #ffd9e8 100%)",
-    fontFamily: "'Mali', cursive, sans-serif", // Changed to Mali
+    background: "#FCF6BD",
+    fontFamily: "'Mali', cursive, sans-serif",
     padding: "3.2rem 1.5rem 4rem",
-    position: "relative",
-    overflow: "hidden",
   },
   container: {
     maxWidth: "1200px",
@@ -142,124 +158,100 @@ const styles = {
   },
   title: {
     textAlign: "center",
-    margin: "0 0 2.8rem",
+    marginBottom: "2.8rem",
     fontSize: "3.4rem",
-    fontWeight: 800, // Bold
-    color: "#d4456c",
-    letterSpacing: "0.5px",
-    textShadow: "2px 2px 0px rgba(255,255,255,0.5), 4px 4px 20px rgba(212,69,108,0.2)",
-    fontFamily: "'Mali', cursive, sans-serif", // Added Mali font
+    fontWeight: 900,
+    color: "#F8AB63",
+    textShadow: "2px 2px 15px rgba(0,0,0,0.15)",
+    marginTop: "4rem",
   },
   columns: {
     display: "grid",
-    gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+    gridTemplateColumns: "repeat(3, 1fr)",
     gap: "2.2rem",
-    alignItems: "stretch",
-    marginTop: "0.5rem",
   },
   col: {
     display: "flex",
-    position: "relative",
     padding: "0 0.6rem",
+  },
+  block: {
+    background: "rgba(255,255,255,0.85)",
+    borderRadius: "28px",
+    padding: "1.8rem 1.6rem",
+    backdropFilter: "blur(10px)",
+    flex: 1,
   },
   colTitle: {
     textAlign: "center",
     fontSize: "1.3rem",
-    fontWeight: 700, // Bold
-    margin: "0 0 1.4rem",
-    color: "#5a3a52",
-    textShadow: "1px 1px 0px rgba(255,255,255,0.8)",
-    fontFamily: "'Mali', cursive, sans-serif", // Added Mali font
-  },
-  block: {
-    background: "rgba(255, 255, 255, 0.75)", 
-    border: "2px solid rgba(212, 69, 108, 0.15)",
-    borderRadius: "28px",
-    padding: "1.8rem 1.6rem 1.4rem",
-    boxShadow: "0 8px 32px rgba(212, 69, 108, 0.12), inset 0 1px 0 rgba(255,255,255,0.9)",
-    backdropFilter: "blur(10px)",
-    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-    flex: "1",
-    display: "flex",
-    flexDirection: "column",
+    fontWeight: 800,
+    marginBottom: "1.4rem",
+    color: "#d97706",
   },
   p: {
-    margin: "0 0 1rem",
-    color: "#4a3a45",
+    marginBottom: "1rem",
+    color: "#4a3a25",
     lineHeight: 1.9,
     fontSize: "1rem",
-    textAlign: "justify",
-    fontFamily: "'Mali', cursive, sans-serif", // Added Mali font
-    fontWeight: 400, // Regular weight for paragraphs
   },
   quote: {
-    fontWeight: 700, // Bold for quotes
-    marginLeft: "0.35rem",
-    color: "#d4456c",
-    background: "rgba(212, 69, 108, 0.08)",
-    padding: "0.15rem 0.4rem",
+    fontWeight: 800,
+    marginLeft: "0.3rem",
+    color: "#f59e0b",
+    background: "rgba(255,159,28,0.15)",
+    padding: "0.2rem 0.45rem",
     borderRadius: "6px",
-    fontFamily: "'Mali', cursive, sans-serif", // Added Mali font
   },
+
+  // ---------- CONTACTS ----------
   contactsBox: {
     marginTop: "3.3rem",
-    background: "linear-gradient(135deg, #d4456c 0%, #b8365a 100%)",
+    background: "linear-gradient(135deg, #F59C63, #F59C63)",
     borderRadius: "32px",
-    padding: "2.5rem 2.5rem 2rem",
-    boxShadow: "0 16px 48px rgba(212, 69, 108, 0.3), inset 0 1px 0 rgba(255,255,255,0.2)",
-    border: "2px solid rgba(255,255,255,0.15)",
+    padding: "2.5rem",
+    boxShadow: "0 16px 48px rgba(249,115,22,0.35)",
+    border: "2px solid rgba(255,255,255,0.35)",
   },
   contactsTitle: {
-    margin: "0 0 1.5rem",
     textAlign: "center",
     color: "#ffffff",
-    fontSize: "1.3rem",
-    fontWeight: 700, // Bold
-    letterSpacing: "0.3px",
-    textShadow: "2px 2px 8px rgba(0,0,0,0.2)",
-    fontFamily: "'Mali', cursive, sans-serif", // Added Mali font
+    fontSize: "1.5rem",
+    fontWeight: 900,
+    marginBottom: "1.5rem",
   },
   contactsGrid: {
     display: "grid",
-    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-    gap: "1.1rem 1.6rem",
+    gridTemplateColumns: "repeat(2, 1fr)",
+    gap: "1.4rem",
   },
   contactItem: {
-    background: "rgba(255,255,255,0.15)",
+    background: "rgba(255,255,255,0.25)",
     borderRadius: "20px",
-    padding: "1.1rem 1.2rem",
-    border: "1px solid rgba(255,255,255,0.2)",
-    backdropFilter: "blur(10px)",
-    transition: "transform 0.2s ease, background 0.2s ease",
+    padding: "1.2rem",
+    border: "1px solid rgba(255,255,255,0.4)",
   },
   contactLabel: {
     color: "#ffffff",
-    fontWeight: 700, // Bold
+    fontWeight: 900,
     fontSize: "1rem",
     marginBottom: "0.3rem",
-    textShadow: "1px 1px 3px rgba(0,0,0,0.2)",
-    fontFamily: "'Mali', cursive, sans-serif", // Added Mali font
   },
   contactText: {
-    color: "rgba(255,255,255,0.95)",
-    fontSize: "0.95rem",
+    color: "#ffffff",
+    fontSize: "0.98rem",
     lineHeight: 1.6,
-    fontFamily: "'Mali', cursive, sans-serif", // Added Mali font
-    fontWeight: 400, // Regular weight
+    fontWeight: 500,
   },
   muted: {
-    opacity: 0.85,
-    fontWeight: 500,
-    fontFamily: "'Mali', cursive, sans-serif", // Added Mali font
+    opacity: 0.95,
+    color: "#ffffff",
   },
   link: {
-    color: "#ffffff",          
+    color: "#ffffff",
+    fontWeight: 900,
     textDecoration: "underline",
-    fontWeight: 600,
-    textShadow: "1px 1px 3px rgba(0,0,0,0.2)",
-    fontFamily: "'Mali', cursive, sans-serif", // Added Mali font
   },
   linkList: {
-    marginTop: "0.5rem",
+    marginTop: "0.4rem",
   },
 };
