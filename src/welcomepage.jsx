@@ -25,36 +25,39 @@ export default function WelcomePage() {
 
   const timeConfig = {
     morning: {
-      gradient: 'from-yellow-100 to-orange-200',
+      gradient: 'from-amber-200 to-pink-200',
       greeting: 'Good Morning!',
     },
     afternoon: {
-      gradient: 'from-blue-100 to-yellow-200',
+      gradient: 'from-amber-300 via-orange-300 to-yellow-200',
       greeting: 'Good Afternoon!',
     },
     night: {
-      gradient: 'from-gray-800 to-black',
+      gradient: 'from-[#0A192F] via-[#1E3A8A] to-[#0F172A]',
       greeting: 'Good Evening!',
     },
   };
 
   const config = timeConfig[timeOfDay];
   return (
-    <div className={`min-h-screen bg-gradient-to-br ${config.gradient} transition-all duration-1000`}>
+    <div className={`min-h-screen bg-gradient-to-br ${config.gradient} transition-all duration-1000 flex flex-col`}>
  {/* Navigation Bar */}
  <nav className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-gray-800">Logo</h1>
+  <div className="flex items-center justify-between">
+    {/* Logo on the left - only ONE logo needed */}
+    <img 
+      src="/logodos.png" 
+      alt="Logo" 
+      className="absolute left-4  top-4 h-14 w-quto"  
+    />
+    <div className="flex items-center justify-end"></div>
           
-          <div className="flex gap-4">
-            <button className="px-6 py-2 text-gray-800 hover:text-pink-600 font-semibold transition-colors" style={{fontFamily: 'Mali'}}>
-              Home
+          <div className="flex gap-12">
+          <button className=" right-4 px-6 py-2 text-gray-800 hover:text-blue-300 font-semibold transition-colors text-2xl" style={{fontFamily: 'Mali'}}>
+            Contact 
             </button>
-            <button className="px-6 py-2 text-gray-800 hover:text-pink-600 font-semibold transition-colors" style={{fontFamily: 'Mali'}}>
-              About Us
-            </button>
-            <button className="px-6 py-2 text-gray-800 hover:text-pink-600 font-semibold transition-colors" style={{fontFamily: 'Mali'}}>
-              Contact
+            <button className="absolute right-1 px-3 py-2 text-gray-800 hover:text-pink-600 font-semibold transition-colors text-2xl" style={{fontFamily: 'Mali'}}>
+            About Us
             </button>
           </div>
         </div>
@@ -72,37 +75,60 @@ export default function WelcomePage() {
           </p>
         </div>
 
-        {/* Feature Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mt-24" style={{fontFamily: 'Mali'}}>
-          <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow text-center">
-            <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
-              <span className="text-2xl">🙈</span>
-            </div>
-            <p className="text-gray-600">Work in progress</p>
-          </div>
+  {/* Feature Cards */}
+        <div className="flex justify-center gap-32 max-w-6xl mx-auto mt-24 px-4" style={{fontFamily: 'Mali'}}>
 
-          <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow text-center">
-            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
-              <span className="text-2xl">💡</span>
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Work in progress</h3>
-            <p className="text-gray-600">Change me! </p>
-          </div>
+  {/* First Flower Button */}
+        <div className="relative w-64 h-64 flex items-center justify-center">
+      {/* Petals */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          {[0, 1, 2, 3, 4, 5].map((i) => (
+        <div
+          key={i}
+          className="absolute w-24 h-24 bg-purple-300 rounded-full"
+          style={{
+            transform: `rotate(${i * 60}deg) translateY(-60px)`,
+          }}
+        />
+      ))}
+    </div>
+    
+  {/* Center Circle */}
+    <div className="relative z-10 w-32 h-32 bg-purple-500 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
+      <span className="text-4xl mb-1">🙈</span>
+      <p className="text-white text-sm font-bold">Mood board</p>
+    </div>
+  </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow text-center">
-            <div className="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
-            <span className="text-2xl">😋</span>
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Work in progress</h3>
-            <p className="text-gray-600">change me </p>
-          </div>
-        </div>
+  {/* Second Flower Button */}
+      <div className="relative w-64 h-64 flex items-center justify-center">
+    {/* Petals */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          {[0, 1, 2, 3, 4, 5].map((i) => (
+        <div
+          key={i}
+          className="absolute w-24 h-24 bg-pink-300 rounded-full"
+          style={{
+            transform: `rotate(${i * 60}deg) translateY(-60px)`,
+          }}
+        />
+      ))}
+    </div>
+    
+    {/* Center Circle */}
+    <div className="relative z-10 w-32 h-32 bg-pink-500 rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
+      <span className="text-4xl mb-1">💡</span>
+      <p className="text-white text-sm font-bold">Resources</p>
+    </div>
+  </div>
+  
+</div>
       </main>
       <footer className="container mx-auto px-4 py-8">
         <div className="text-center">
-        <h3 className="text-xl font-bold text-gray-800 mb-2" style={{fontFamily: 'Mali'}} >Developed By</h3>
-        <p className="text-l text-gray-700" style={{fontFamily: 'Mali'}}>
-           Aylin • Deserae • Emily • Heloisa 
+        <h3 className="text-xl font-bold text-gray-800 mb-2" style={{fontFamily: 'Mali'}}>Developed By</h3>
+      <p className="text-l text-gray-700" style={{fontFamily: 'Mali'}}>
+        Aylin • Deserae • Emily • Heloisa 
       </p>
 
       {/* ElvenLabs ConvAI Widget */}
