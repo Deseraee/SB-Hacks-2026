@@ -31,7 +31,7 @@ const EmergencyPage = () => {
           console.log("Simulated alert sent! Location:", mockCoords);
           setStatus("done");
           setTimeout(() => setCamouflaged(true), 10);
-        }, 20);
+        }, 10);
         return;
       }
     }
@@ -39,7 +39,7 @@ const EmergencyPage = () => {
     if (navigator.geolocation) {
       const options = {
         enableHighAccuracy: true,
-        timeout: 1000,
+        timeout: 5000,
         maximumAge: 0
       };
 
@@ -53,7 +53,7 @@ const EmergencyPage = () => {
           setLocation(coords);
           console.log("Alert sent! Location:", coords);
           setStatus("done");
-          setTimeout(() => setCamouflaged(true), 2000);
+          setTimeout(() => setCamouflaged(true), 800);
         },
         (error) => {
           console.error("Geolocation error:", error);
@@ -88,7 +88,7 @@ const EmergencyPage = () => {
               };
               setLocation(mockCoords);
               setStatus("done");
-              setTimeout(() => setCamouflaged(true), 2000);
+              setTimeout(() => setCamouflaged(true), 800);
             }
           }, 100);
         },
