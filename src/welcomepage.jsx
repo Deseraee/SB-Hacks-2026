@@ -48,12 +48,12 @@ export default function WelcomePage() {
     <img 
       src="/logodos.png" 
       alt="Logo" 
-      className="absolute left-4  top-4 h-14 w-quto"  
+      className="absolute left-4  top-4 h-24 w-quto"  
     />
     <div className="flex items-center justify-end"></div>
           
           <div className="flex gap-12">
-          <button className=" right-4 px-6 py-2 text-gray-800 hover:text-blue-300 font-semibold transition-colors text-2xl" style={{fontFamily: 'Mali'}}>
+          <button className=" px-6 py-2 text-gray-800 hover:text-blue-300 font-semibold transition-colors text-2xl" style={{fontFamily: 'Mali'}}>
             Contact 
             </button>
             <button className="absolute right-1 px-3 py-2 text-gray-800 hover:text-pink-600 font-semibold transition-colors text-2xl" style={{fontFamily: 'Mali'}}>
