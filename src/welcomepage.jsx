@@ -39,7 +39,7 @@ export default function WelcomePage() {
   const config = timeConfig[timeOfDay];
   return (
     <div className="min-h-screen bg-[#FCF6BD] transition-all duration-1000 flex flex-col">
- <header className="bg-gradient-to-r from-orange-100 to-orange-200 shadow-sm">
+      <header className="bg-gradient-to-r from-orange-100 to-orange-200 shadow-md py-1.5 px-4">
  <nav className="container mx-auto px-4 py-4">
   <div className="flex items-center justify-between">
     {/* Logo on the left - only ONE logo needed */}

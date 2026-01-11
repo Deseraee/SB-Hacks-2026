@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-[#FCF6BD] transition-all duration-1000 flex flex-col">
       {/* Pink Header with Back Button */}
-      <div className="bg-gradient-to-r from-orange-100 to-pink-200 py-4 px-8 shadow-sm">
+      <div className="bg-gradient-to-r from-orange-100 to-pink-200 shadow-md py-3 px-6">
         <Link 
           to="/"
           className="text-pink-800 hover:text-pink-900 font-semibold text-2xl flex items-center gap-2" 
