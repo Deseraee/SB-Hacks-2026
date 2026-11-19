@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import ourMissionImg from "./assets/ourmission.png";
 import ourValuesImg from "./assets/ourvalues.png";
-import logoImg from "./assets/logo.png"
+//import logoImg from "./assets/logo.png"
 
 const THEME = {
   bg: "#fff2de",
